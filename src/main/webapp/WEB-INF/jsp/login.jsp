@@ -86,7 +86,7 @@
 
             <!-- Back Button To Landing Page -->
             <small class="text-blue">
-                <i class="fa fa-arrow-alt-circle-left"></i> <a href="/" class="btn btn-sm text-blue">Back</a>
+                <a href="/" class="btn btn-sm text-blue"><i class="fa fa-arrow-alt-circle-left"></i>  Back</a>
             </small>
             <!-- End Of Back Button To Landing Page -->
 

@@ -3,7 +3,7 @@
  CREATE DATABASE spodynbank;
  
  
- USE demo_bank_v1;
+ USE spodynbank;
  
  -- USERS TABALE STRUCTURE:
  CREATE TABLE users(
