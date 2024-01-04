@@ -15,7 +15,7 @@ To run the application, follow the instructions below:
 1. Clone this repository to your local machine.
 2. Navigate to the main project directory.
 3. Execute the following command to build the project:
-   ```bash
+```bash
    mvn clean install
 ```
 After the build is successful, start the application using the command:
