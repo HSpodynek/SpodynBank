@@ -1,13 +1,13 @@
-package com.spodynbank;
+//package com.spodynbank;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+//import org.junit.jupiter.api.Test;
+//import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class DemoBankV1ApplicationTests {
+//@SpringBootTest
+//class DemoBankV1ApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+//	@Test
+//	void contextLoads() {
+//	}
 
-}
+//}

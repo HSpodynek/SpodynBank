@@ -25,8 +25,11 @@ public class RegisterController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private MailMessenger mailMessenger;
+
     @GetMapping("/register")
-    public ModelAndView getRegister(){
+    public ModelAndView getRegister() {
         ModelAndView getRegisterPage = new ModelAndView("register");
         System.out.println("In Register Page Controller");
         getRegisterPage.addObject("PageTitle", "Register");
@@ -34,7 +37,7 @@ public class RegisterController {
     }
 
     @PostMapping("/register")
-    public ModelAndView register(@Valid @ModelAttribute("registerUser")User user,
+    public ModelAndView register(@Valid @ModelAttribute("registerUser") User user,
                                  BindingResult result,
                                  @RequestParam("first_name") String first_name,
                                  @RequestParam("last_name") String last_name,
@@ -44,13 +47,13 @@ public class RegisterController {
 
         ModelAndView registrationPage = new ModelAndView("register");
 
-        if(result.hasErrors() && confirm_password.isEmpty()){
+        if (result.hasErrors() || confirm_password.isEmpty()) {
             registrationPage.addObject("confirm_pass", "The confirm Field is required");
             return registrationPage;
         }
 
-        if(!password.equals(confirm_password)){
-            registrationPage.addObject("passwordMisMatch", "passwords do not match");
+        if (!password.equals(confirm_password)) {
+            registrationPage.addObject("passwordMisMatch", "Passwords do not match");
             return registrationPage;
         }
 
@@ -65,12 +68,10 @@ public class RegisterController {
 
         userRepository.registerUser(first_name, last_name, email, hashed_password, token, code);
 
-        MailMessenger.htmlEmailMessenger("no-reply@spodyn.com", email, "Verify Account", emailBody);
+        mailMessenger.htmlEmailMessenger("no-reply@spodyn.com", email, "Verify Account", emailBody);
 
         String successMessage = "Account Registered Successfully, Please Check your Email and Verify Account!";
         registrationPage.addObject("success", successMessage);
         return registrationPage;
     }
-
-
 }
